@@ -30,6 +30,8 @@ function prog(){
   document.getElementById('barTxt').textContent=done+' / '+all.length;
 }
 mo.addEventListener('change',prog);prog();
+// print: expand all collapsibles (fallback for older browsers)
+window.addEventListener('beforeprint',()=>document.querySelectorAll('details').forEach(d=>d.open=true));
 // scrollspy
 const links=[...document.querySelectorAll('#nav a')];
 const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
